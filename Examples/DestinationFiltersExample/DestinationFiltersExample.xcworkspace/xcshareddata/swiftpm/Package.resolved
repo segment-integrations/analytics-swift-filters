@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:segmentio/EdgeFn-Swift.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "ec883df24c99b647c4c231c24ce31d8ff311297f"
+        "revision" : "ff97785da9ed61c2c76cdbe3987aa084a30eeeb3",
+        "version" : "0.1.2"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:segmentio/substrata-swift.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "b0fc14b6a454bd2138af55110d108e487f2b2d1b"
+        "revision" : "a673d773d0a6dab86a31cadcb771b45022e0c5ac",
+        "version" : "0.0.2"
       }
     }
   ],

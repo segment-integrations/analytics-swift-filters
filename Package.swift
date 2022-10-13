@@ -20,7 +20,7 @@ let package = Package(
         .package(
             name: "EdgeFn",
             url: "git@github.com:segmentio/EdgeFn-Swift.git",
-            .branch("main")
+            .upToNextMajor(from: "0.1.1")
         ),
         .package(
             name: "Segment",
@@ -30,7 +30,7 @@ let package = Package(
         .package(
             name: "Substrata",
             url: "git@github.com:segmentio/substrata-swift.git",
-            .branch("main")
+            .upToNextMajor(from: "0.0.2")
         ),
     ],
     targets: [
