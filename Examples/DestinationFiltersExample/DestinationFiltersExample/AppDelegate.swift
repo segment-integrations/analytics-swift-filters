@@ -10,7 +10,7 @@ import Segment
 import DestinationFilters_Swift
 
 extension Analytics {
-    static let config = Configuration(writeKey: "YOUR_WRITE_KEY_HERE")
+    static let config = Configuration(writeKey: "93EMLzmXzP6EJ3cJOhdaAgEVNnZjwRqA")
         .flushAt(1)
         .trackApplicationLifecycleEvents(true)
     
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        Analytics.main.add(plugin: WebhookDestination(webhookUrl: "SOME_WEBHOOK_URL"))
+        Analytics.main.add(plugin: WebhookDestination(webhookUrl: "https://webhook.site/c6349c6a-bc14-49be-9677-0c8df3e07b58"))
         Analytics.main.add(plugin: DestinationFilters())
         
         Analytics.main.track(name: "howdy doody")
