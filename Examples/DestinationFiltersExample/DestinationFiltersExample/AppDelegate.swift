@@ -7,7 +7,7 @@
 
 import UIKit
 import Segment
-import DestinationFilters_Swift
+import AnalyticsFilters
 
 extension Analytics {
     static let config = Configuration(writeKey: "93EMLzmXzP6EJ3cJOhdaAgEVNnZjwRqA")
