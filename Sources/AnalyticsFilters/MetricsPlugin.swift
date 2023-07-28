@@ -6,8 +6,6 @@
 
 import Foundation
 import Segment
-import EdgeFn
-import Substrata
 
 public class MetricsPlugin: Plugin {
     public let type: PluginType = .enrichment
@@ -30,7 +28,7 @@ public class MetricsPlugin: Plugin {
             context[keyPath: "plugins.destinations-filters"] = [
               "version": __destinationFilters_version,
               "active": activeDestinations
-            ]
+            ] as [String : Any]
             do {
                 workingEvent.context = try JSON(context)
             } catch {
