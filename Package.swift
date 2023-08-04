@@ -17,9 +17,9 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "git@github.com:segment-integrations/analytics-swift-live.git", .upToNextMajor(from: "0.2.3")),
-        .package(url: "git@github.com:segmentio/analytics-swift.git", from: "1.4.7"),
-        .package(url: "git@github.com:segmentio/substrata-swift.git", .upToNextMajor(from: "0.0.2")),
+        .package(url: "https://github.com/segment-integrations/analytics-swift-live.git", .upToNextMajor(from: "0.2.3")),
+        .package(url: "https://github.com/segmentio/analytics-swift.git", from: "1.4.7"),
+        .package(url: "https://github.com/segmentio/substrata-swift.git", .upToNextMajor(from: "0.0.2")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
