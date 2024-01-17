@@ -40,6 +40,9 @@ public class DestinationFilters: UtilityPlugin {
     """
     #else
     var destinationFilterEdgeFunctionTypes = """
+
+        let plugins = [];
+
         class DestinationFilter extends LivePlugin {
             constructor(destination, rules) {
                 super(LivePluginType.enrichment, destination);
@@ -54,7 +57,17 @@ public class DestinationFilters: UtilityPlugin {
 
         function createDestinationFilter(destination, rules) {
             var dest = new DestinationFilter(destination, rules);
+            plugins.push(dest)
             return analytics.add(dest);
+        }
+
+        function removePreviousDestinationFilters() {
+            for (var i = 0; i < plugins.length; i++) {
+                let p = plugins[i];
+                analytics.remove(p);
+            }
+
+            plugins = []
         }
     """
     #endif
@@ -79,8 +92,10 @@ public class DestinationFilters: UtilityPlugin {
         }
     }
 
+    var metricsPlugin: MetricsPlugin? = nil
+
     public func update(settings: Settings, type: UpdateType) {
-        guard type == .initial else { return }
+
         var setOfActiveDestinations: Set<String> = []
         let middlewareSettings = settings.middlewareSettings
         let rules = middlewareSettings?["routingRules"]?.arrayValue as? [[String: Any]] // This is an array
@@ -88,6 +103,10 @@ public class DestinationFilters: UtilityPlugin {
             let destination = rule["destinationName"] as? String ?? ""
             if !destination.isEmpty {
                 if let eng = engine {
+                    // First remove any exisitng destination filters
+                    eng.call(functionName: "removePreviousDestinationFilters")
+
+                    // Why are we using JavaScript to add the plugin? Because we are adding plugins
                     let added = eng.call(functionName: "createDestinationFilter", params: destination, rule)
                     if let addedTyped = added as? Bool, addedTyped == true {
                         setOfActiveDestinations.insert(destination)
@@ -96,7 +115,13 @@ public class DestinationFilters: UtilityPlugin {
             }
         }
 
-        analytics?.add(plugin: MetricsPlugin(setOfActiveDestinations: setOfActiveDestinations))
+        // need to remove the previous Metrics Plugin and add the new one.
+        if let mp = metricsPlugin {
+            analytics?.remove(plugin: mp)
+        }
+
+        metricsPlugin = MetricsPlugin(setOfActiveDestinations: setOfActiveDestinations)
+        analytics?.add(plugin: metricsPlugin!)
     }
 
 }
