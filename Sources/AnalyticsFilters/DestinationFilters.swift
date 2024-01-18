@@ -99,13 +99,16 @@ public class DestinationFilters: UtilityPlugin {
         var setOfActiveDestinations: Set<String> = []
         let middlewareSettings = settings.middlewareSettings
         let rules = middlewareSettings?["routingRules"]?.arrayValue as? [[String: Any]] // This is an array
+
+        if let eng = engine {
+            // First remove any exisitng destination filters
+            eng.call(functionName: "removePreviousDestinationFilters")
+        }
+
         rules?.forEach {rule in
             let destination = rule["destinationName"] as? String ?? ""
             if !destination.isEmpty {
                 if let eng = engine {
-                    // First remove any exisitng destination filters
-                    eng.call(functionName: "removePreviousDestinationFilters")
-
                     // Why are we using JavaScript to add the plugin? Because we are adding plugins
                     let added = eng.call(functionName: "createDestinationFilter", params: destination, rule)
                     if let addedTyped = added as? Bool, addedTyped == true {
