@@ -20,6 +20,8 @@ public class DestinationFilters: UtilityPlugin {
 
     #if DEBUG
     var destinationFilterEdgeFunctionTypes = """
+        let plugins = [];
+
         class DestinationFilter extends LivePlugin {
             constructor(destination, rules) {
                 super(LivePluginType.enrichment, destination);
@@ -35,7 +37,17 @@ public class DestinationFilters: UtilityPlugin {
 
         function createDestinationFilter(destination, rules) {
             var dest = new DestinationFilter(destination, rules);
+            plugins.push(dest)
             return analytics.add(dest);
+        }
+
+        function removePreviousDestinationFilters() {
+            for (var i = 0; i < plugins.length; i++) {
+                let p = plugins[i];
+                analytics.remove(p);
+            }
+
+            plugins = []
         }
     """
     #else
