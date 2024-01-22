@@ -121,7 +121,6 @@ public class DestinationFilters: UtilityPlugin {
             let destination = rule["destinationName"] as? String ?? ""
             if !destination.isEmpty {
                 if let eng = engine {
-                    // Why are we using JavaScript to add the plugin? Because we are adding plugins
                     let added = eng.call(functionName: "createDestinationFilter", params: destination, rule)
                     if let addedTyped = added as? Bool, addedTyped == true {
                         setOfActiveDestinations.insert(destination)
