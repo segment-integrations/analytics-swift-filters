@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4631BE162B602F920063334A /* AnalyticsFilters in Frameworks */ = {isa = PBXBuildFile; productRef = 4631BE152B602F920063334A /* AnalyticsFilters */; };
 		75EE630E28DBC60500A0B99E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE630D28DBC60500A0B99E /* AppDelegate.swift */; };
 		75EE631028DBC60500A0B99E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE630F28DBC60500A0B99E /* SceneDelegate.swift */; };
 		75EE631228DBC60500A0B99E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE631128DBC60500A0B99E /* ViewController.swift */; };
@@ -16,7 +17,6 @@
 		75EE632528DBC60800A0B99E /* DestinationFiltersExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE632428DBC60800A0B99E /* DestinationFiltersExampleTests.swift */; };
 		75EE632F28DBC60800A0B99E /* DestinationFiltersExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE632E28DBC60800A0B99E /* DestinationFiltersExampleUITests.swift */; };
 		75EE633128DBC60800A0B99E /* DestinationFiltersExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE633028DBC60800A0B99E /* DestinationFiltersExampleUITestsLaunchTests.swift */; };
-		75EE634128DBCDD800A0B99E /* DestinationFilters-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 75EE634028DBCDD800A0B99E /* DestinationFilters-Swift */; };
 		75EE634328DBD4CA00A0B99E /* WebhookDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE634228DBD4CA00A0B99E /* WebhookDestination.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EE634128DBCDD800A0B99E /* DestinationFilters-Swift in Frameworks */,
+				4631BE162B602F920063334A /* AnalyticsFilters in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +164,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				4631BE142B602F8B0063334A /* PBXTargetDependency */,
 			);
 			name = DestinationFiltersExample;
 			packageProductDependencies = (
-				75EE634028DBCDD800A0B99E /* DestinationFilters-Swift */,
+				4631BE152B602F920063334A /* AnalyticsFilters */,
 			);
 			productName = DestinationFiltersExample;
 			productReference = 75EE630A28DBC60500A0B99E /* DestinationFiltersExample.app */;
@@ -311,6 +312,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4631BE142B602F8B0063334A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 4631BE132B602F8B0063334A /* AnalyticsFilters */;
+		};
 		75EE632228DBC60800A0B99E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75EE630928DBC60500A0B99E /* DestinationFiltersExample */;
@@ -462,8 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DestinationFiltersExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -476,8 +483,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = prayansh.DestinationFiltersExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.segment.destfiltersexample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,8 +497,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DestinationFiltersExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -503,8 +513,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = prayansh.DestinationFiltersExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.segment.destfiltersexample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,9 +636,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		75EE634028DBCDD800A0B99E /* DestinationFilters-Swift */ = {
+		4631BE132B602F8B0063334A /* AnalyticsFilters */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = "DestinationFilters-Swift";
+			productName = AnalyticsFilters;
+		};
+		4631BE152B602F920063334A /* AnalyticsFilters */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnalyticsFilters;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
