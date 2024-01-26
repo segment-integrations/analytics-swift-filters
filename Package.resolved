@@ -12,10 +12,10 @@
     {
       "identity" : "analytics-swift-live",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:segment-integrations/analytics-swift-live.git",
+      "location" : "https://github.com/segment-integrations/analytics-swift-live.git",
       "state" : {
-        "revision" : "3b07681d498595aa8e06cd814003db53661abb88",
-        "version" : "0.2.3"
+        "branch" : "add-removeLivePlugins-function",
+        "revision" : "049479fe4e18fcdda96ae2578e1f5be3d34f2e41"
       }
     },
     {
