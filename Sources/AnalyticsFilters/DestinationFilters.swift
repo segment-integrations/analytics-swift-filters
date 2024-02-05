@@ -37,6 +37,11 @@ public class DestinationFilters: UtilityPlugin {
             var dest = new DestinationFilter(destination, rules);
             return analytics.add(dest);
         }
+
+        function removePreviousDestinationFilters() {
+            analytics.removeLivePlugins()
+            return true
+        }
     """
     #else
     var destinationFilterEdgeFunctionTypes = """
@@ -55,6 +60,11 @@ public class DestinationFilters: UtilityPlugin {
         function createDestinationFilter(destination, rules) {
             var dest = new DestinationFilter(destination, rules);
             return analytics.add(dest);
+        }
+
+        function removePreviousDestinationFilters() {
+            analytics.removeLivePlugins()
+            return true
         }
     """
     #endif
@@ -79,11 +89,19 @@ public class DestinationFilters: UtilityPlugin {
         }
     }
 
+    var metricsPlugin: MetricsPlugin? = nil
+
     public func update(settings: Settings, type: UpdateType) {
-        guard type == .initial else { return }
         var setOfActiveDestinations: Set<String> = []
         let middlewareSettings = settings.middlewareSettings
         let rules = middlewareSettings?["routingRules"]?.arrayValue as? [[String: Any]] // This is an array
+
+        if let eng = engine {
+            // First remove any exisitng destination filters
+            eng.call(functionName: "removePreviousDestinationFilters")
+            setOfActiveDestinations = []
+        }
+
         rules?.forEach {rule in
             let destination = rule["destinationName"] as? String ?? ""
             if !destination.isEmpty {
@@ -96,7 +114,13 @@ public class DestinationFilters: UtilityPlugin {
             }
         }
 
-        analytics?.add(plugin: MetricsPlugin(setOfActiveDestinations: setOfActiveDestinations))
+        // need to remove the previous Metrics Plugin and add the new one.
+        if let mp = metricsPlugin {
+            analytics?.remove(plugin: mp)
+        }
+
+        metricsPlugin = MetricsPlugin(setOfActiveDestinations: setOfActiveDestinations)
+        analytics?.add(plugin: metricsPlugin!)
     }
 
 }
