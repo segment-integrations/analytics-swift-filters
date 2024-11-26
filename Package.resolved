@@ -3,10 +3,10 @@
     {
       "identity" : "analytics-swift",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:segmentio/analytics-swift.git",
+      "location" : "https://github.com/segmentio/analytics-swift.git",
       "state" : {
-        "revision" : "c8fd5fdf59299f00b3e4303a1b12a6d88893bf56",
-        "version" : "1.4.7"
+        "revision" : "f6acb751ea058e6a4077a876595f40a827350b0e",
+        "version" : "1.7.1"
       }
     },
     {
@@ -14,8 +14,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/segment-integrations/analytics-swift-live.git",
       "state" : {
-        "branch" : "add-removeLivePlugins-function",
-        "revision" : "049479fe4e18fcdda96ae2578e1f5be3d34f2e41"
+        "revision" : "c9f590123e83287f203180134438a4dcb4869c69",
+        "version" : "3.1.0"
+      }
+    },
+    {
+      "identity" : "jsonsafeencoding-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/segmentio/jsonsafeencoding-swift.git",
+      "state" : {
+        "revision" : "af6a8b360984085e36c6341b21ecb35c12f47ebd",
+        "version" : "2.0.0"
       }
     },
     {
@@ -23,17 +32,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/segmentio/Sovran-Swift.git",
       "state" : {
-        "revision" : "64f3b5150c282a34af4578188dce2fd597e600e3",
-        "version" : "1.1.0"
+        "revision" : "24867f3e4ac62027db9827112135e6531b6f4051",
+        "version" : "1.1.2"
       }
     },
     {
       "identity" : "substrata-swift",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:segmentio/substrata-swift.git",
+      "location" : "https://github.com/segmentio/substrata-swift.git",
       "state" : {
-        "revision" : "a673d773d0a6dab86a31cadcb771b45022e0c5ac",
-        "version" : "0.0.2"
+        "revision" : "93f36ace19f4ed5a47d2e57a7edd9de92c18a37b",
+        "version" : "2.0.5"
       }
     }
   ],
