@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/segment-integrations/analytics-swift-live.git",
       "state" : {
-        "revision" : "c9f590123e83287f203180134438a4dcb4869c69",
-        "version" : "3.1.0"
+        "revision" : "cbc0568c5b4be6133d0efbb40058382d0112cfda",
+        "version" : "3.1.1"
       }
     },
     {
