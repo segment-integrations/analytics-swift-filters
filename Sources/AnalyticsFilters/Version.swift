@@ -7,4 +7,4 @@
 // DO NOT MODIFY THIS FILE BY HAND!!
 // Use release.sh's automation.
 // BREAKING.FEATURE.FIX
-internal let __destinationFilters_version = "0.1.1"
+internal let __destinationFilters_version = "0.1.2"
