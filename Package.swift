@@ -17,9 +17,8 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/segment-integrations/analytics-swift-live.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/segment-integrations/analytics-swift-live.git", from: "3.1.0"),
         .package(url: "https://github.com/segmentio/analytics-swift.git", from: "1.4.7"),
-        .package(url: "https://github.com/segmentio/substrata-swift.git", .upToNextMajor(from: "0.0.2")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,7 +27,6 @@ let package = Package(
             name: "AnalyticsFilters",
             dependencies: [
                 .product(name: "Segment", package: "analytics-swift"),
-                .product(name: "Substrata", package: "substrata-swift"),
                 .product(name: "AnalyticsLive", package: "analytics-swift-live"),
             ]),
         .testTarget(

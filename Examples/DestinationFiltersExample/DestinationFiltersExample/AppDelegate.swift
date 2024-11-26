@@ -10,7 +10,7 @@ import Segment
 import AnalyticsFilters
 
 extension Analytics {
-    static let config = Configuration(writeKey: "93EMLzmXzP6EJ3cJOhdaAgEVNnZjwRqA")
+    static let config = Configuration(writeKey: "<YOUR WRITE KEY>")
         .flushAt(1)
         .trackApplicationLifecycleEvents(true)
     
